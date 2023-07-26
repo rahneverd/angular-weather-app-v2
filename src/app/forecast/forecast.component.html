@@ -1,0 +1,57 @@
+<div class="forecast">
+  <div class="change-forecast">
+    <div
+      [ngClass]="
+        forecastType === 'daily' ? 'daily-btn forecast-selected' : 'daily-btn'
+      "
+      (click)="changeForecast('daily')"
+    >
+      Daily
+    </div>
+    <div
+      [ngClass]="
+        forecastType === 'hourly'
+          ? 'hourly-btn forecast-selected'
+          : 'hourly-btn'
+      "
+      (click)="changeForecast('hourly')"
+    >
+      Hourly
+    </div>
+    <div class="change-hours">
+      <div class="change-hours__left">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"
+          viewBox="8.02 6 7.41 12"
+          fill="#f5f5f5"
+        >
+          <title>arrow_left</title>
+          <path
+            d="M15.422 16.594l-1.406 1.406-6-6 6-6 1.406 1.406-4.594 4.594z"
+          />
+        </svg>
+      </div>
+      <div class="dot dot1 dot-selected" data-dot="1"></div>
+      <div class="dot dot2" data-dot="2"></div>
+      <div class="dot dot3" data-dot="3"></div>
+      <div class="change-hours__right">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"
+          viewBox="8.58 6 7.41 12"
+          fill="#f5f5f5"
+        >
+          <title>arrow_right</title>
+          <path
+            d="M8.578 16.594l4.594-4.594-4.594-4.594 1.406-1.406 6 6-6 6z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <app-hourly-container
+    *ngIf="forecastType === 'hourly'"
+  ></app-hourly-container>
+  <app-dily-container *ngIf="forecastType === 'daily'"></app-dily-container>
+</div>
